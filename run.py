@@ -3,7 +3,6 @@ from controllers.expense_controller import create_expense, save_expense, load_ex
 from views.cli import show_menu, get_expense_input, display_expenses, show_summary, ask_export_format
 from controllers.exporter import export_to_csv, export_to_json
 
-
 def main():
     """Main function to run the Expense Tracker CLI application."""
     print("👋 Welcome to the Expense Tracker CLI!")
@@ -103,7 +102,7 @@ def main():
                 print("❎ Deletion cancelled.")
 
 
-
 if __name__ == "__main__":
     main()
     """Run the main function if this script is executed directly."""
+

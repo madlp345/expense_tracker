@@ -1,7 +1,6 @@
 from collections import defaultdict
 from datetime import datetime
 
-
 def show_menu():
     """Display the main menu options fot the user terminal interface."""
     print("\nExpense Tracker")
@@ -38,7 +37,6 @@ def get_expense_input():
     notes = input("Notes (optional): \n").strip()
 
     return amount, category, notes
-
 
 def display_expenses(expenses):
     """Takes a list of expenses and prints each one in a readable format."""
@@ -79,5 +77,3 @@ def ask_export_format():
     print("1. CSV")
     print("2. JSON")
     return input("Choose a format (1 or 2): \n")
-
-        
