@@ -1,30 +1,24 @@
-// ===================================================
-// Total.js start script
-// https://www.totaljs.com
-// ===================================================
+const express = require('express');
+const { spawn } = require('child_process');
+const app = express();
+const path = require('path');
 
-const options = {};
+const PORT = process.env.PORT || 5000;
 
-// options.ip = '127.0.0.1';
-options.port = parseInt(process.env.PORT);
-// options.unixsocket = require('path').join(require('os').tmpdir(), 'app_name');
-// options.config = { name: 'Total.js' };
-// options.sleep = 3000;
-// options.inspector = 9229;
-// options.watch = ['private'];
-// options.livereload = 'https://yourhostname';
+// Serve static HTML file with terminal emulator (optional)
+app.use(express.static('public'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html')); // if you have one
+});
 
-// Enables cluster:
-// options.cluster = 'auto';
-// options.cluster_limit = 10; // max 10. threads (works only with "auto" scaling)
+app.listen(PORT, () => {
+  console.log(`App running on http://localhost:${PORT}`);
 
-// Enables threads:
-// options.cluster = 'auto';
-// options.cluster_limit = 10; // max 10. threads (works only with "auto" scaling)
-// options.timeout = 5000;
-// options.threads = '/api/';
-// options.logs = 'isolated';
+  const pythonProcess = spawn('python3', ['run.py'], {
+    stdio: 'inherit',
+  });
 
-var type = process.argv.indexOf('--release', 1) !== -1 || process.argv.indexOf('release', 1) !== -1 ? 'release' : 'debug';
-// require('total4/' + type)(options);
-require('total4').http('release', options);
+  pythonProcess.on('close', (code) => {
+    console.log(`Python script exited with code ${code}`);
+  });
+});
