@@ -13,11 +13,11 @@ def show_menu():
     print("6. Edit Expense")
     print("7. Delete Expense")
 
-    return input("Select an option: ")
+    return input("Select an option: \n")
 
 def get_expense_input():
     while True:
-        amount = input("Amount: ")
+        amount = input("Amount: \n")
         try:
             amount = float(amount)
             if amount <= 0 or amount > 1_000_000_000:
@@ -27,7 +27,7 @@ def get_expense_input():
             print("❌ Please enter a valid amount between 0 and 1,000,000,000.")
 
     while True:
-        category = input("Category: ").strip()
+        category = input("Category: \n").strip()
         if not category:
             print("❗ Category cannot be empty.")
         elif not category.isalpha():
@@ -35,7 +35,7 @@ def get_expense_input():
         else:
             break
 
-    notes = input("Notes (optional): ").strip()
+    notes = input("Notes (optional): \n").strip()
 
     return amount, category, notes
 
@@ -78,6 +78,6 @@ def ask_export_format():
     print("\n📤 Export Formats:")
     print("1. CSV")
     print("2. JSON")
-    return input("Choose a format (1 or 2): ")
+    return input("Choose a format (1 or 2): \n")
 
         
