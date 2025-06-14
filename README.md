@@ -2,7 +2,16 @@
 
 # 💸 Expense Tracker CLI
 
-Welcome to the **Expense Tracker CLI App**, a terminal-based Python application designed to help users manage personal expenses via an interactive interface. The application supports adding, viewing, editing, deleting, summarizing, and exporting expense data.
+# Expense Tracker CLI Application
+
+This Expense Tracker is a Python-based command-line tool designed to help users efficiently manage their daily expenses. With features to add, view, edit, delete, summarize, and export expenses, it provides a structured and easy-to-use interface for personal finance tracking.
+
+By organizing spending data by category and month, the tracker helps users gain valuable insights into their financial habits and make better-informed budgeting decisions.
+
+This project runs in the Code Institute mock terminal on Heroku.
+
+This expense tracker is live, to access it [click here](https://expense-tracker-ma-60ad3c87f968.herokuapp.com/).
+
 
 [Live App on Heroku](https://your-heroku-app-link-here) <!-- Replace this with the actual link once deployed -->
 

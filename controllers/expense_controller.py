@@ -1,3 +1,5 @@
+"""Handles loading, saving, and creating expense data in JSON format."""
+
 import json
 from datetime import datetime
 from pathlib import Path
@@ -23,7 +25,7 @@ def save_expense(expense):
 
 
 def create_expense(amount, category, notes):
-    """Create a new expense."""
+    """Create a new expense entry."""
     return {
         "id": str(uuid.uuid4()),
         "date": datetime.now().strftime("%Y-%m-%d"),
@@ -31,5 +33,3 @@ def create_expense(amount, category, notes):
         "category": category,
         "notes": notes
     }
-
-   

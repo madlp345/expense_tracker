@@ -1,11 +1,26 @@
+"""Main runner for the Expense Tracker CLI."""
+
 import json
-from controllers.expense_controller import create_expense, save_expense, load_expenses
-from views.cli import show_menu, get_expense_input, display_expenses, show_summary, ask_export_format
+from controllers.expense_controller import (
+    create_expense,
+    save_expense,
+    load_expenses,
+    DATA_FILE
+)
+from views.cli import (
+    show_menu,
+    get_expense_input,
+    display_expenses,
+    show_summary,
+    ask_export_format
+)
 from controllers.exporter import export_to_csv, export_to_json
 
+
 def main():
-    """Main function to run the Expense Tracker CLI application."""
+    """Run the Expense Tracker CLI application."""
     print("👋 Welcome to the Expense Tracker CLI!")
+
     while True:
         choice = show_menu()
 
@@ -47,25 +62,33 @@ def main():
                 continue
 
             display_expenses(expenses)
-            selected_id = input("Enter the ID of the expense to edit: \n").strip()
+            selected_id = input(
+                "Enter the ID of the expense to edit: \n"
+            ).strip()
 
-            matched = next((e for e in expenses if e["id"].startswith(selected_id)), None)
+            matched = next(
+                (e for e in expenses if e["id"].startswith(selected_id)), None
+            )
             if not matched:
                 print("❗ Expense not found.")
                 continue
 
             print("Enter new values (leave empty to keep current):")
-            new_amount = input(f"Amount [{matched['amount']}]: \n") or matched["amount"]
-            new_category = input(f"Category [{matched['category']}]: \n") or matched["category"]
-            new_notes = input(f"Notes [{matched['notes']}]: \n") or matched["notes"]
+            new_amount = input(
+                f"Amount [{matched['amount']}]: \n"
+            ) or matched["amount"]
+            new_category = input(
+                f"Category [{matched['category']}]: \n"
+            ) or matched["category"]
+            new_notes = input(
+                f"Notes [{matched['notes']}]: \n"
+            ) or matched["notes"]
 
             try:
                 matched["amount"] = float(new_amount)
                 matched["category"] = new_category
                 matched["notes"] = new_notes
 
-                # Save updated list
-                from controllers.expense_controller import DATA_FILE
                 with open(DATA_FILE, "w") as file:
                     json.dump(expenses, file, indent=4)
 
@@ -80,21 +103,29 @@ def main():
                 continue
 
             display_expenses(expenses)
-            selected_id = input("Enter the ID of the expense to delete: \n").strip()
+            selected_id = input(
+                "Enter the ID of the expense to delete: \n"
+            ).strip()
 
-            matched = next((e for e in expenses if e["id"].startswith(selected_id)), None)
-
+            matched = next(
+                (e for e in expenses if e["id"].startswith(selected_id)), None
+            )
             if not matched:
                 print("❗ Expense not found.")
                 continue
 
-            print(f"\nAre you sure you want to delete this expense?")
-            print(f"[{matched['id'][:8]}] {matched['date']} - {matched['category']} - ${matched['amount']} - {matched['notes']}")
+            print("\nAre you sure you want to delete this expense?")
+            print(
+                f"[{matched['id'][:8]}] {matched['date']} - "
+                f"{matched['category']} - ${matched['amount']} - "
+                f"{matched['notes']}"
+            )
             confirm = input("Type 'yes' to confirm: \n").strip().lower()
 
             if confirm == "yes":
-                updated_expenses = [e for e in expenses if e["id"] != matched["id"]]
-                from controllers.expense_controller import DATA_FILE
+                updated_expenses = [
+                    e for e in expenses if e["id"] != matched["id"]
+                ]
                 with open(DATA_FILE, "w") as file:
                     json.dump(updated_expenses, file, indent=4)
                 print("🗑️ Expense deleted successfully.")
@@ -104,5 +135,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    """Run the main function if this script is executed directly."""
-

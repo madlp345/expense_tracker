@@ -1,8 +1,11 @@
+"""CLI utilities for interacting with the Expense Tracker application."""
+
 from collections import defaultdict
 from datetime import datetime
 
+
 def show_menu():
-    """Display the main menu options fot the user terminal interface."""
+    """Display the main menu options for the user terminal interface."""
     print("\nExpense Tracker")
     print("1. Add Expense")
     print("2. View Expenses")
@@ -14,7 +17,9 @@ def show_menu():
 
     return input("Select an option: \n")
 
+
 def get_expense_input():
+    """Prompt user for expense input with validation and return the result."""
     while True:
         amount = input("Amount: \n")
         try:
@@ -38,20 +43,26 @@ def get_expense_input():
 
     return amount, category, notes
 
+
 def display_expenses(expenses):
-    """Takes a list of expenses and prints each one in a readable format."""
+    """Print each expense in a readable format."""
     if not expenses:
         print("No expenses recorded.")
         return
+
     for exp in expenses:
-        print(f"[{exp['id'][:8]}] {exp['date']} - {exp['category']} - ${exp['amount']} - {exp['notes']}")
-        
+        print(
+            f"[{exp['id'][:8]}] {exp['date']} - {exp['category']} - "
+            f"${exp['amount']} - {exp['notes']}"
+        )
+
+
 def show_summary(expenses):
-    """Display a summary of expenses"""
+    """Display a summary of expenses."""
     if not expenses:
         print("No expenses to summarize.")
         return
-    
+
     monthly_total = defaultdict(float)
     category_total = defaultdict(float)
 
@@ -63,7 +74,7 @@ def show_summary(expenses):
             category_total[exp["category"]] += float(exp["amount"])
         except Exception as e:
             print(f"Skipping an invalid expense entry: {e}")
-    
+
     print("\n📆 Monthly Total:")
     for month, total in monthly_total.items():
         print(f"  {month}: ${total:.2f}")
@@ -72,7 +83,9 @@ def show_summary(expenses):
     for cat, total in category_total.items():
         print(f"  {cat}: ${total:.2f}")
 
+
 def ask_export_format():
+    """Prompt user to choose a format for exporting expenses."""
     print("\n📤 Export Formats:")
     print("1. CSV")
     print("2. JSON")
