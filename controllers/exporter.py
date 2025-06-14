@@ -14,11 +14,12 @@ def export_to_csv(expenses, filename="expenses_export.csv"):
     with open(filepath, "w", newline="") as file:
         writer = csv.DictWriter(
             file,
-            fieldnames=["date", "amount", "category", "notes"]
+            fieldnames=["id", "date", "amount", "category", "notes"]  # include 'id'
         )
         writer.writeheader()
         writer.writerows(expenses)
     print(f"✅ Exported to CSV: {filepath}")
+
 
 
 def export_to_json(expenses, filename="expenses_export.json"):

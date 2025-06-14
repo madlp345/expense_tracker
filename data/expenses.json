@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "id": "a2e6e440-eac9-4dbd-8988-56be3225022c",
+        "date": "2025-06-14",
+        "amount": 120.0,
+        "category": "Car",
+        "notes": "tires"
+    }
+]

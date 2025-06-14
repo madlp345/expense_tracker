@@ -1,4 +1,3 @@
-date,amount,category,notes
-2025-06-11,150.0,Food,Grocery
-2025-06-11,200.0,Meat,Grocery
-2025-06-12,100.0,Food,Grocery
+id,date,amount,category,notes
+60245105-e68a-413a-b28d-5381407aaedc,2025-06-14,100.0,Grocery,
+a2e6e440-eac9-4dbd-8988-56be3225022c,2025-06-14,100.0,Grocery,Meat
