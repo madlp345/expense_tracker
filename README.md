@@ -252,10 +252,10 @@ To deploy:
 
 ### Code
 - [Code Institute](https://codeinstitute.net/) – Terminal template and deployment guidance.
-- NumPy Library [Official NumPy](https://numpy.org/), and [stackoverflow](https://stackoverflow.com/questions/34968722/how-to-implement-the-softmax-function-in-python) to get the explanations of how to use the Softmax-like transformation.
+- NumPy Library [Official NumPy](https://numpy.org/).
 - Love-sandwiches walkthorugh project provided by [Code Institute](https://codeinstitute.net/global/)
-- Fuzzywuzzy library [Offical Python documentation](https://pypi.org/project/fuzzywuzzy/), and [use explanation](https://www.geeksforgeeks.org/fuzzywuzzy-python-library/)
-- The exporter[explanation](https://www.youtube.com/watch?v=V5sEAq9n_4A)
+- Fuzzywuzzy library [Offical Python documentation](https://pypi.org/project/fuzzywuzzy/).
+- The exporter [video](https://www.youtube.com/watch?v=V5sEAq9n_4A)
 
 ---
 
