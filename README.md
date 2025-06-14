@@ -253,8 +253,8 @@ To deploy:
 ### Code
 - [Code Institute](https://codeinstitute.net/) – Terminal template and deployment guidance.
 - NumPy Library [Official NumPy](https://numpy.org/).
-- Love-sandwiches walkthorugh project provided by [Code Institute](https://codeinstitute.net/global/)
-- Fuzzywuzzy library [Offical Python documentation](https://pypi.org/project/fuzzywuzzy/).
+- Love-sandwiches walkthorugh project provided by [Code Institute](https://codeinstitute.net/global/) 
+- [Python JSON Module Documentation](https://docs.python.org/3/library/json.html) 
 - The exporter [video](https://www.youtube.com/watch?v=V5sEAq9n_4A)
 
 ---
